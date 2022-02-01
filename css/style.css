@@ -83,7 +83,12 @@ body {
   margin-right: auto;
 }
 
-canvas {
+#ahorcado {
+  display: none;
+  transition: all 0.5s ease-out;
+}
+
+.hidde {
   display: none;
 }
 
