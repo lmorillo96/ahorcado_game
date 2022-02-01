@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>El Ahorcado</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+
+    <header class="header">
+
+      <h1 class="header__titulo">AHORCADO</h1>
+      <h3 class="header__sub">Bienvenido a este famosisimo juego llamado El Ahorcado</h4>
+      <p class="header__legend">
+        Para poder comenzar el juego, debes tener algunas cosas en cuenta:
+        <ul class="list">
+          <li>Para ganar el juego debes completar la palabra antes de que se ahorque el muñeco.</li>
+          <li>Es obvio pero, si no completas la palabra a adivinar, estás muerto.</li>
+          <li>Está tranquilx por las acentuaciones, números y carácteres especiales. Las omitiré.</li>
+          <li><span class="bonus">Bonus:</span> Puedes agregar la palabra que desees al juego y retar a tus amigos.</li>
+        </ul>
+      </p>
+
+    </header>
+
+
+    <main class="container">
+
+      <section class="container__start">
+
+        <input class="text-input" type="text" id="input-nueva-palabra" placeholder="Escriba una nueva palabra">
+        <button class="btn" id="nueva-palabra">AGREGAR PALABRA</button> 
+        <button class="btn" id="iniciar-juego">INICIAR JUEGO</button>
+
+      </section>
+
+      <canvas id="ahorcado" height="800px" width="1200px"></canvas>
+      
+    </main>
+
+
+  <footer class="footer">
+
+    <p class="contact__copyright">
+      Ejercicio realizado por &copy; Leandro Morillo
+    </p>
+  
+  </footer>
+
+
+
+
+
+
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <script type="text/javascript" src="js/ahorcado.js"></script>
+  </body>
+</html>
