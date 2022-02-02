@@ -5,32 +5,30 @@ let ahorcado = document.querySelector('#ahorcado');
 // Llamar a la función para iniciar juego
 
 btnStart.addEventListener('click',() => {
-    console.log("Juego iniciado");
+    console.log(palabrasAgregadas);
+    
+    if (palabrasAgregadas.length <= 0) {
+        alert("Lista de palabras vacias");
+        return;
+    }
+
     showCanvas();
+    hiddeList();
+
 });
 
 btnFinish.addEventListener('click', () => {
     hiddeCanvas();
-    console.log(hiddeCanvas())
 })
 
-
 function showCanvas() {
-
-    if (ahorcado.style.display === 'none') {
-        ahorcado.style.display = 'block';
-        btnStart.disabled = true;
-    } else {
-        ahorcado.style.display = 'none';
-    }
+    ahorcado.classList.remove('hidde')
 }
 
 function hiddeCanvas() {
-    if (ahorcado.style.display === 'block') {
-        ahorcado.classList.add('hidde');
-    } else {
-        ahorcado.style.display = 'none';
-    }
+    ahorcado.classList.add('hidde');
+}
 
-    console.log("Juego finalizado")
+function hiddeList() {
+    listaPalabras.classList.add('hidde');
 }
