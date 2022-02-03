@@ -5,7 +5,6 @@ let ahorcado = document.querySelector('#ahorcado');
 // Llamar a la función para iniciar juego
 
 btnStart.addEventListener('click',() => {
-    console.log(palabrasAgregadas);
     
     if (palabrasAgregadas.length <= 0) {
         alert("Lista de palabras vacias");
@@ -15,6 +14,8 @@ btnStart.addEventListener('click',() => {
     showCanvas();
     hiddeList();
 
+    escogerPalabra();
+
 });
 
 btnFinish.addEventListener('click', () => {
@@ -22,7 +23,7 @@ btnFinish.addEventListener('click', () => {
 })
 
 function showCanvas() {
-    ahorcado.classList.remove('hidde')
+    ahorcado.classList.remove('hidde');
 }
 
 function hiddeCanvas() {

@@ -4,7 +4,7 @@ let inpAddWord = document.querySelector('#input-nueva-palabra')
 
 // Creamos un array para luego agregar palabras que el jugador desee
 
-const palabrasAgregadas = []
+const palabrasAgregadas = [];
 
 // Llamar a la función para agregar nueva palabra
 
