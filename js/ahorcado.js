@@ -13,9 +13,8 @@ btnStart.addEventListener('click',() => {
 
     showCanvas();
     hiddeList();
-
     escogerPalabra();
-
+    marcarLineas();
 });
 
 btnFinish.addEventListener('click', () => {
