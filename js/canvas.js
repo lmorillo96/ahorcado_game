@@ -14,33 +14,42 @@ function dibujarLinea (color, xinicial, yinicial, xfinal, yfinal) {
 	pincel.closePath(); // levantar el lapiz para finalizar
 }
 
-
 function marcarLineas () {
 	let lineas = palabraJuego.length;
-	let texto;
 	let color = "black";
 	let sizeXi = 70;
 	let sizeXf = 100;
 	
 	for (let i = 0; i < lineas; i++) {
-		
-		texto = palabraJuego[i];
 		sizeXi = sizeXi + 80;
 		sizeXf = sizeXf + 80;
-		dibujarLinea(color, sizeXi, 40, sizeXf, 40);
-
-		pincel.font="bold 20px arial";
-		pincel.strokeText(texto, sizeXi, 32); //texto con método stroke
-		pincel.fillText(texto,sizeXi, 32); //texto con método fill
-		pincel.strokeText(texto,sizeXi, 32); //texto con los dos métodos
-		pincel.fillText(texto,sizeXi, 32);
+		dibujarLinea(color, sizeXi, 80, sizeXf, 80);
 	}
-
-
 }
 
-// Dibujar letras de líneas
+// Función dibujar letras correctas
 
+function dibujarLetras(teclaPresionada) {
+	let lineas = palabraJuego.length;
+	let sizeX = 70;
+
+	for (let i = 0; i < lineas; i++) {
+		sizeX = sizeX + 80;
+		if (teclaPresionada == palabraJuego[i]) {
+			pincel.font="bold 20px arial";
+			pincel.strokeStyle = "black";
+			pincel.fillStyle = "black";
+			pincel.strokeText(teclaPresionada, sizeX, 75);
+		}
+	}
+}
+
+// Función dibujar letras incorrectas
+
+
+
+
+// Dibujar letras de líneas
 
 
 

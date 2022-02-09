@@ -11,6 +11,6 @@ function validates(e) {
     if(!teclaPresionada.match(new RegExp(/[A-Z\s]+/))) {
         alert("Solo letras mayusculas");
     } else {
-        console.log(teclaPresionada);
+        dibujarLetras(teclaPresionada);
     }
 }
