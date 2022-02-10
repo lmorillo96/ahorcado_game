@@ -2,6 +2,7 @@ let pincel = ahorcado.getContext("2d");
 pincel.fillStyle = "#C8F2EF";
 pincel.fillRect(0,0,1200,800);
 
+const letrasErroneas = [];
 
 // Función para dibujar Lineas
 
@@ -32,24 +33,35 @@ function marcarLineas () {
 function dibujarLetras(teclaPresionada) {
 	let lineas = palabraJuego.length;
 	let sizeX = 70;
+	let sizeF = 100;
 
 	for (let i = 0; i < lineas; i++) {
 		sizeX = sizeX + 80;
-		if (teclaPresionada == palabraJuego[i]) {
-			pincel.font="bold 20px arial";
-			pincel.strokeStyle = "black";
-			pincel.fillStyle = "black";
-			pincel.strokeText(teclaPresionada, sizeX, 75);
+		sizeF = sizeF + 80;
+		if(palabraJuego.indexOf(teclaPresionada) > -1) {
+			if (teclaPresionada == palabraJuego[i]) {
+				pincel.font="bold 20px arial";
+				pincel.strokeStyle = "black";
+				pincel.fillStyle = "black";
+				pincel.strokeText(teclaPresionada, sizeX, 75);
+			}
+		} else {
+			letrasErroneas.push(teclaPresionada);
+			console.log(letrasErroneas);
+			palabrasErroneas(teclaPresionada, sizeX);
+			break;
 		}
 	}
 }
 
 // Función dibujar letras incorrectas
 
-
-
-
-// Dibujar letras de líneas
+function palabrasErroneas(teclaPresionada, sizeX) {
+	pincel.font="bold 20px arial";
+	pincel.strokeStyle = "red";
+	pincel.fillStyle = "red";
+	pincel.strokeText(teclaPresionada, sizeX, 120);
+}
 
 
 
