@@ -1,9 +1,9 @@
 let pincel = ahorcado.getContext("2d");
 pincel.fillStyle = "#C8F2EF";
 pincel.fillRect(0,0,1200,800);
-
 let letrasEncontradas = [];
 let sizeXErroneas = 150;
+
 
 // Función para dibujar Lineas
 
@@ -17,6 +17,8 @@ function dibujarLinea (color, xinicial, yinicial, xfinal, yfinal) {
 }
 
 function marcarLineas () {
+	pincel.fillStyle = "#C8F2EF";
+	pincel.fillRect(0,0,1200,800);
 	let lineas = palabraJuego.length;
 	let color = "black";
 	let sizeXi = 70;
@@ -44,7 +46,7 @@ function dibujarLetras(teclaPresionada) {
 				if (teclaPresionada == palabraJuego[i]) {
 					dibujarTexto(teclaPresionada, sizeX);
 					letrasEncontradas.push(teclaPresionada);
-					validarFindejuego();
+					
 				}
 			} else {
 				palabrasErroneas(teclaPresionada, sizeXErroneas);
@@ -57,6 +59,17 @@ function dibujarLetras(teclaPresionada) {
 				}
 				break;
 			}
+		}
+		
+		if(validarFindejuego()){
+			dibujarTexto("Se acabó el juego, GANASTE!", 600, 150);
+			const idx = palabrasAgregadas.indexOf(palabraJuego);
+        	palabrasAgregadas.splice(idx, 1);
+			isOver = true;
+			if(palabrasAgregadas.length > 1)
+				btnFinish.textContent = "CONTINUAR JUEGO";
+			else
+				btnFinish.textContent = "TERMINAR JUEGO";
 		}
 }
 
@@ -82,12 +95,32 @@ function dibujarTexto(teclaPresionada, sizeX, sizeY = 75) {
 // validar fin de juego
 
 function validarFindejuego() {
-	let isFound = true; 
-	for(let i = 0; i < letrasEncontradas.length; i++) {
-		if (palabraJuego.contains(letrasEncontradas[i])) {
-			
+	let isFound; 
+	for(let i = 0; i < palabraJuego.length; i++) {
+		if (letrasEncontradas.includes(palabraJuego[i])) {
+			isFound = true;
+		}else{
+			isFound = false;
+			break;
 		}
 	}
+
+	return isFound;
+}
+
+function reiniciarCanvas(){
+	pincel.fillStyle = "#C8F2EF";
+	pincel.fillRect(0,0,1200,800);
+	palabrasAgregadas = [];
+	isOver = false;
+	hiddeCanvas();
+	listaPalabras.innerHTML = '';
+	showList();
+	recontarLetras();
+}
+
+function recontarLetras(){
+	letrasEncontradas = [];
 }
 
 

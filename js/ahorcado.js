@@ -15,10 +15,21 @@ btnStart.addEventListener('click',() => {
     hiddeList();
     escogerPalabra();
     marcarLineas();
+
+    if(palabrasAgregadas.length > 1)
+        btnFinish.textContent = "CONTINUAR JUEGO";
 });
 
 btnFinish.addEventListener('click', () => {
-    hiddeCanvas();
+    // history.go();
+    if(palabrasAgregadas.length > 0){
+        escogerPalabra(true);
+        marcarLineas();
+        isOver = false;
+        recontarLetras();
+    }else{
+        reiniciarCanvas();
+    }
 })
 
 function showCanvas() {
@@ -31,4 +42,8 @@ function hiddeCanvas() {
 
 function hiddeList() {
     listaPalabras.classList.add('hidde');
+}
+
+function showList() {
+    listaPalabras.classList.remove('hidde');
 }

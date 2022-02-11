@@ -52,20 +52,24 @@ const DibujarPiernaDer = () => {
 	ahorcadoDibujo("black", 570, 502, 500, 420); // pierna DERECHA
 }
 
-let arrDibujoAhorcado = [
-	DibujarBase,
-	DibujarTronco2,
-	DibujarTronco1,
-	DibujarCabeza,
-	DibujarTorso,
-	DibujarBrazoIzq,
-	DibujarBrazoDer,
-	DibujarPiernaIzq,
-	DibujarPiernaDer 
-].reverse();
+let arrDibujoAhorcado = inicializarFuncionesDibujo();
 
 
 
+function inicializarFuncionesDibujo(){
+	let myArr =  [
+		DibujarBase,
+		DibujarTronco2,
+		DibujarTronco1,
+		DibujarCabeza,
+		DibujarTorso,
+		DibujarBrazoIzq,
+		DibujarBrazoDer,
+		DibujarPiernaIzq,
+		DibujarPiernaDer 
+	].reverse();
 
+	return myArr;
+}
 
 
