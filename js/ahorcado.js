@@ -13,7 +13,6 @@ btnStart.addEventListener('click',() => {
 
     showCanvas();
     hiddeList();
-    ahorcadoDibujo();
     escogerPalabra();
     marcarLineas();
 });

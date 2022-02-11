@@ -2,7 +2,8 @@ let pincel = ahorcado.getContext("2d");
 pincel.fillStyle = "#C8F2EF";
 pincel.fillRect(0,0,1200,800);
 
-const letrasErroneas = [];
+let letrasEncontradas = [];
+let sizeXErroneas = 150;
 
 // Función para dibujar Lineas
 
@@ -35,23 +36,30 @@ function dibujarLetras(teclaPresionada) {
 	let sizeX = 70;
 	let sizeF = 100;
 
-	for (let i = 0; i < lineas; i++) {
-		sizeX = sizeX + 80;
-		sizeF = sizeF + 80;
-		if(palabraJuego.indexOf(teclaPresionada) > -1) {
-			if (teclaPresionada == palabraJuego[i]) {
-				pincel.font="bold 20px arial";
-				pincel.strokeStyle = "black";
-				pincel.fillStyle = "black";
-				pincel.strokeText(teclaPresionada, sizeX, 75);
+	if(!letrasEncontradas.includes(teclaPresionada))
+		for (let i = 0; i < lineas; i++) {
+			sizeX = sizeX + 80;
+			sizeF = sizeF + 80;
+			if(palabraJuego.indexOf(teclaPresionada) > -1) {
+				if (teclaPresionada == palabraJuego[i]) {
+					pincel.font="bold 20px arial";
+					pincel.strokeStyle = "black";
+					pincel.fillStyle = "black";
+					pincel.strokeText(teclaPresionada, sizeX, 75);
+					letrasEncontradas.push(teclaPresionada);
+				}
+			} else {
+				palabrasErroneas(teclaPresionada, sizeXErroneas);
+				letrasEncontradas.push(teclaPresionada);
+				if(arrDibujoAhorcado.length > 0){
+					let currFunction = arrDibujoAhorcado.pop();
+					currFunction();
+				}else{
+					alert("PERDISTE!!");
+				}
+				break;
 			}
-		} else {
-			letrasErroneas.push(teclaPresionada);
-			console.log(letrasErroneas);
-			palabrasErroneas(teclaPresionada, sizeX);
-			break;
 		}
-	}
 }
 
 // Función dibujar letras incorrectas
@@ -61,6 +69,7 @@ function palabrasErroneas(teclaPresionada, sizeX) {
 	pincel.strokeStyle = "red";
 	pincel.fillStyle = "red";
 	pincel.strokeText(teclaPresionada, sizeX, 120);
+	sizeXErroneas = sizeXErroneas + 30;
 }
 
 

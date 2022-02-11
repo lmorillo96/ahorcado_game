@@ -7,10 +7,12 @@ window.addEventListener('keydown', (e) => {
 
 function validates(e) {
     let teclaPresionada = e.key;
-    
-    if(!teclaPresionada.match(new RegExp(/[A-Z\s]+/))) {
-        alert("Solo letras mayusculas");
-    } else {
-        dibujarLetras(teclaPresionada);
+    const regEx = new RegExp(/[A-Z]/);
+    if(teclaPresionada.length == 1){
+        if(!regEx.test(teclaPresionada)) {
+            alert("Solo letras mayusculas");
+        } else {
+            dibujarLetras(teclaPresionada);
+        }
     }
 }
