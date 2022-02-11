@@ -42,20 +42,18 @@ function dibujarLetras(teclaPresionada) {
 			sizeF = sizeF + 80;
 			if(palabraJuego.indexOf(teclaPresionada) > -1) {
 				if (teclaPresionada == palabraJuego[i]) {
-					pincel.font="bold 20px arial";
-					pincel.strokeStyle = "black";
-					pincel.fillStyle = "black";
-					pincel.strokeText(teclaPresionada, sizeX, 75);
+					dibujarTexto(teclaPresionada, sizeX);
 					letrasEncontradas.push(teclaPresionada);
+					validarFindejuego();
 				}
 			} else {
 				palabrasErroneas(teclaPresionada, sizeXErroneas);
 				letrasEncontradas.push(teclaPresionada);
-				if(arrDibujoAhorcado.length > 0){
-					let currFunction = arrDibujoAhorcado.pop();
-					currFunction();
-				}else{
-					alert("PERDISTE!!");
+				let currFunction = arrDibujoAhorcado.pop();
+				currFunction();
+				if(arrDibujoAhorcado.length == 0){
+					dibujarTexto("Se acabó el juego, PERDISTE!", 600, 150);
+					isOver = true;
 				}
 				break;
 			}
@@ -72,6 +70,25 @@ function palabrasErroneas(teclaPresionada, sizeX) {
 	sizeXErroneas = sizeXErroneas + 30;
 }
 
+// DIBUJAR TEXTO
+
+function dibujarTexto(teclaPresionada, sizeX, sizeY = 75) {
+	pincel.font="bold 20px arial";
+	pincel.strokeStyle = "black";
+	pincel.fillStyle = "black";
+	pincel.strokeText(teclaPresionada, sizeX, sizeY);
+}
+
+// validar fin de juego
+
+function validarFindejuego() {
+	let isFound = true; 
+	for(let i = 0; i < letrasEncontradas.length; i++) {
+		if (palabraJuego.contains(letrasEncontradas[i])) {
+			
+		}
+	}
+}
 
 
 
