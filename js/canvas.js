@@ -66,12 +66,12 @@ function dibujarLetras(teclaPresionada) {
 			const idx = palabrasAgregadas.indexOf(palabraJuego);
         	palabrasAgregadas.splice(idx, 1);
 			isOver = true;
-			if(palabrasAgregadas.length > 1)
-				btnFinish.textContent = "CONTINUAR JUEGO";
-			else
+			if(palabrasAgregadas.length = 0)
+				/* btnFinish.textContent = "CONTINUAR JUEGO";
+			else */
 				btnFinish.textContent = "TERMINAR JUEGO";
+			}
 		}
-}
 
 // Función dibujar letras incorrectas
 
@@ -119,9 +119,9 @@ function reiniciarCanvas(){
 	recontarLetras();
 }
 
-function recontarLetras(){
+/* function recontarLetras(){
 	letrasEncontradas = [];
-}
+} */
 
 
 
