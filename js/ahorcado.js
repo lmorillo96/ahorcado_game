@@ -26,8 +26,6 @@ btnFinish.addEventListener('click', () => {
         marcarLineas();
         isOver = false;
         recontarLetras();
-        ChangeButtonText();
-        inicializarFuncionesDibujo();
     }else{
         reiniciarCanvas();
     }
