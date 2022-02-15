@@ -52,7 +52,7 @@ const DibujarPiernaDer = () => {
 	ahorcadoDibujo("black", 570, 502, 500, 420); // pierna DERECHA
 }
 
-let arrDibujoAhorcado = inicializarFuncionesDibujo();
+let arrDibujoAhorcado = [];
 
 
 
@@ -69,7 +69,7 @@ function inicializarFuncionesDibujo(){
 		DibujarPiernaDer 
 	].reverse();
 
-	return myArr;
+	arrDibujoAhorcado = myArr;
 }
 
 

@@ -55,6 +55,8 @@ function dibujarLetras(teclaPresionada) {
 				currFunction();
 				if(arrDibujoAhorcado.length == 0){
 					dibujarTexto("Se acabó el juego, PERDISTE!", 600, 150);
+					EliminarPalabraActual();
+					ChangeButtonText();
 					isOver = true;
 				}
 				break;
@@ -63,15 +65,28 @@ function dibujarLetras(teclaPresionada) {
 		
 		if(validarFindejuego()){
 			dibujarTexto("Se acabó el juego, GANASTE!", 600, 150);
-			const idx = palabrasAgregadas.indexOf(palabraJuego);
-        	palabrasAgregadas.splice(idx, 1);
+			EliminarPalabraActual();
 			isOver = true;
-			if(palabrasAgregadas.length = 0)
-				/* btnFinish.textContent = "CONTINUAR JUEGO";
-			else */
-				btnFinish.textContent = "TERMINAR JUEGO";
-			}
+			ChangeButtonText();
 		}
+}
+
+//Eliminar palabra actual
+
+function EliminarPalabraActual(){
+	const idx = palabrasAgregadas.indexOf(palabraJuego);
+	palabrasAgregadas.splice(idx, 1);
+}
+
+//cAMBIAR TEXTO BTN TERMINAR JUEGO
+
+function ChangeButtonText(){
+	if(palabrasAgregadas.length == 0)
+		btnFinish.textContent = "TERMINAR JUEGO";
+	else
+		btnFinish.textContent = "CONTINUAR JUEGO";
+}
+
 
 // Función dibujar letras incorrectas
 
@@ -119,10 +134,6 @@ function reiniciarCanvas(){
 	recontarLetras();
 }
 
-/* function recontarLetras(){
+function recontarLetras(){
 	letrasEncontradas = [];
-} */
-
-
-
-
+}

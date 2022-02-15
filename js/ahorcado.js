@@ -15,7 +15,7 @@ btnStart.addEventListener('click',() => {
     hiddeList();
     escogerPalabra();
     marcarLineas();
-
+    inicializarFuncionesDibujo();
     if(palabrasAgregadas.length > 1) btnFinish.textContent = "CONTINUAR JUEGO";
 });
 
@@ -26,6 +26,8 @@ btnFinish.addEventListener('click', () => {
         marcarLineas();
         isOver = false;
         recontarLetras();
+        ChangeButtonText();
+        inicializarFuncionesDibujo();
     }else{
         reiniciarCanvas();
     }
