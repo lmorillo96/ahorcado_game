@@ -16,14 +16,13 @@ btnStart.addEventListener('click',() => {
     escogerPalabra();
     marcarLineas();
 
-    /* if(palabrasAgregadas.length > 1)
-        btnFinish.textContent = "CONTINUAR JUEGO"; */
+    if(palabrasAgregadas.length > 1) btnFinish.textContent = "CONTINUAR JUEGO";
 });
 
 btnFinish.addEventListener('click', () => {
     // history.go();
     if(palabrasAgregadas.length > 0){
-        escogerPalabra(true);
+        escogerPalabra();
         marcarLineas();
         isOver = false;
         recontarLetras();
